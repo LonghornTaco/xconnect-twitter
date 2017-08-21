@@ -56,10 +56,10 @@ namespace xConnectTwitter.App.Repository
 		{
 			_logger.Write("Initializing xConnect...");
 
-			//var config = new XConnectClientConfiguration(XConnectCoreModel.Instance, new Uri(_xconnectConfiguration.XconnectUrl));
-			//config.Initialize();
-			var config = new XConnectClientConfiguration(new XdbRuntimeModel(Sitecore.XConnect.Collection.Model.CollectionModel.Model), new Uri(_xconnectConfiguration.XconnectUrl), new Uri(_xconnectConfiguration.XconnectUrl));
+			var config = new XConnectClientConfiguration(XConnectCoreModel.Instance, new Uri(_xconnectConfiguration.XconnectUrl));
 			config.Initialize();
+			//var config = new XConnectClientConfiguration(new XdbRuntimeModel(Sitecore.XConnect.Collection.Model.CollectionModel.Model), new Uri(_xconnectConfiguration.XconnectUrl), new Uri(_xconnectConfiguration.XconnectUrl));
+			//config.Initialize();
 
 			_client = new XConnectClient(config);
 
