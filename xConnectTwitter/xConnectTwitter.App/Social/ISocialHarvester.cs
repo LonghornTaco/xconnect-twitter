@@ -12,6 +12,7 @@ namespace xConnectTwitter.App.Social
 		void Initialize();
 		void Start();
 		void Stop();
-		event EventHandler<MatchedTweetReceivedEventArgs> OnTweetReceived;
+
+		event EventHandler<TweetReceivedEventArgs> OnTweetReceived;
 	}
 }

@@ -11,5 +11,7 @@ namespace xConnectTwitter.App.Configuration
 		string XconnectUrl { get; }
 		string TwitterChannelId { get; }
 		string TwitterEngagementGoalId { get; }
+        string OutputDirectory { get; }
+        string MonitoredPhraseOnTwitterEventId { get; }
 	}
 }

@@ -16,7 +16,7 @@ namespace xConnectTwitter.App.Social
 		private readonly ITwitterConfiguration _configuration;
 		private readonly ILogger _logger;
 
-		public event EventHandler<MatchedTweetReceivedEventArgs> OnTweetReceived;
+		public event EventHandler<TweetReceivedEventArgs> OnTweetReceived;
 
 		private IFilteredStream _stream;
 
@@ -41,19 +41,19 @@ namespace xConnectTwitter.App.Social
 
 		public void Start()
 		{
-			_stream.StartStreamMatchingAllConditions();
+			_stream?.StartStreamMatchingAllConditions();
 		}
 
 		public void Stop()
 		{
-			_stream.StopStream();
+            _stream?.StopStream();
 		}
 
 		private void Stream_MatchingTweetReceived(object sender, Tweetinvi.Events.MatchedTweetReceivedEventArgs e)
 		{
 			_logger.WriteLine($"Got a tweet from {e.Tweet.CreatedBy} [{e.Tweet.CreatedBy.ScreenName}]");
-			OnTweetReceived?.Invoke(this, e);
-			//_saver.SaveContact("twitter", e.Tweet.CreatedBy.ScreenName);
+		    var user = User.GetUserFromId(e.Tweet.CreatedBy.Id);
+			OnTweetReceived?.Invoke(this, new TweetReceivedEventArgs(e.Tweet, e.Json, user));
 		}
 	}
 }

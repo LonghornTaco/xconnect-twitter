@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Sitecore.XConnect;
 
-namespace xConnectTwitter.Model
+namespace xConnectTwitter.App.Model
 {
+    [FacetKey(FacetName)]
     public class Tweet : Facet
     {
         public const string FacetName = "Tweet";

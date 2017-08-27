@@ -20,8 +20,10 @@ namespace xConnectTwitter.App.Configuration
 		public string XconnectUrl => GetValue<string>("XconnectUrl");
 		public string TwitterChannelId => GetValue<string>("TwitterChannelId");
 		public string TwitterEngagementGoalId => GetValue<string>("TwitterEngagementGoalId");
+		public string OutputDirectory => GetValue<string>("OutputDirectory");
+	    public string MonitoredPhraseOnTwitterEventId => GetValue<string>("MonitoredPhraseOnTwitterEventId");
 
-		private static T GetValue<T>(string key)
+        private static T GetValue<T>(string key)
 		{
 			var returnValue = default(T);
 			var converter = TypeDescriptor.GetConverter(typeof(T));
